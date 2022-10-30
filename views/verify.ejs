@@ -1,0 +1,64 @@
+<%-include('partials/header')%>
+
+
+<div class="">
+  <form class="register" action="/register" method="get">
+    <button type="submit" class="btn btn-primary">register</button>
+  </form>
+</div>
+<div class="verifyHeader">
+  <h1>verify your account</h1>
+  <p>
+    Otp has been sent your email kindly verify your email,.
+  </p>
+</div>
+
+<div class="container mt-5">
+
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Makes POST request to /login route -->
+          <form action="/verify" method="POST">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="username" placeholder="Enter the email through which you have registered, if not go back to register page">
+            </div>
+            <div class="form-group">
+              <label for="otp">OTP</label>
+              <input type="text" class="form-control" name="otp" placeholder="Enter the otp">
+            </div>
+            <button type="submit" class="btn btn-dark">verify</button>
+            <div id='status' class='warning'><%=errormessage%></div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<script>
+      if(document.getElementById("status").innerHTML!='')
+      {
+        document.getElementById("status").style.visibility = "visible";
+      }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%-include('partials/footer')%>

@@ -1,10 +1,13 @@
 <%- include('partials/header') %>
 
-<div class="container mt-5">
-  <h1>Login</h1>
+<div class="login">
+  <div class="logo--div">
+    <h1 class="display-3">kiskis</h1>
+  </div>
+
 
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-12">
       <div class="card">
         <div class="card-body">
 
@@ -18,14 +21,15 @@
               <label for="password">Password</label>
               <input type="password" class="form-control" name="password">
             </div>
-            <button type="submit" class="btn btn-dark">Login</button>
+            <button type="submit" class="btn btn-dark">Login</button><br>
+            <i style="color: red; margin-top: 10px;"><%=errormessage%></i>
           </form>
 
         </div>
       </div>
     </div>
 
-    <!-- <div class="col-sm-4">
+    <div class="">
       <div class="card">
         <div class="card-body">
           <a class="btn btn-block" href="/auth/google" role="button">
@@ -34,7 +38,8 @@
           </a>
         </div>
       </div>
-    </div> -->
+
+    </div>
 
 
   </div>

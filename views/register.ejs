@@ -1,9 +1,10 @@
 <%- include('partials/header') %>
+
 <div class="container mt-5">
   <h1>Register</h1>
 
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-12">
       <div class="card">
         <div class="card-body">
 
@@ -11,31 +12,87 @@
           <form action="/register" method="POST">
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" name="username">
+              <input onkeyup="validate_password()" id="email" type="email" class="form-control" name="username">
             </div>
             <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" name="password">
+              <label  for="password">Password</label>
+              <input  id="password1" type="password" class="form-control" name="password" value="">
             </div>
-            <button type="submit" class="btn btn-dark">Register</button>
+            <div class="form-group">
+              <label for="password">Confirm Password</label>
+              <input id="password2" onkeyup="validate_password()" type="password" class="form-control" name="password1">
+            </div>
+            <div id="passCheck">
+              <p>Passwords do not match..., kindly renter</p>
+            </div>
+            <div id="emailCheck">
+              <p>Passwords do not match..., kindly renter</p>
+            </div>
+            <button id="create" type="submit"  class="btn btn-dark">Register</button>
           </form>
 
         </div>
       </div>
     </div>
 
-    <!-- <div class="col-sm-4">
-      <div class="card social-block">
-        <div class="card-body">
-          <a class="btn btn-block" href="/auth/google" role="button">
-            <i class="fab fa-google"></i>
-            Sign Up with Google
-          </a>
-        </div>
-      </div>
-    </div> -->
 
+
+  </div>
+  <div class="col-sm-12">
+    <div class="card social-block">
+      <div class="card-body">
+        <a class="btn btn-block" href="/auth/google" role="button">
+          <i class="fab fa-google"></i>
+          Sign Up with Google
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 
-<%- include('partials/header') %>
+<script type="text/javascript">
+
+document.getElementById('create').setAttribute("disabled", "disabled");
+document.getElementById('create').setAttribute("title", "enter valid details");
+  // function email_checker() {
+  //   var email = document.getElementById('email').value.length;
+  //   if(email === 0){
+  //     document.getElementById('create').style.color = 'red';
+  //     document.getElementById('create').setAttribute("disabled", "disabled");
+  //     document.getElementById('create').style.opacity = (0.4);
+  //     document.getElementById('create').setAttribute("title", "please enter valid email");
+  //   }else{
+  //     document.getElementById('create').style.color = 'green';
+  //     document.getElementById('create').removeAttribute("disabled");
+  //     document.getElementById('create').style.opacity = (1);
+  //     document.getElementById('create').setAttribute("title", "");
+  //   }
+  // }
+  function validate_password() {
+
+            var pass = document.getElementById('password1').value;
+            var confirm_pass = document.getElementById('password2').value;
+            var email = document.getElementById('email').value;
+
+
+            if (pass != confirm_pass || pass ==="" || confirm_pass==="" || email === "") {
+                console.log(email);
+                document.getElementById('passCheck').style.visibility = 'visible';
+                document.getElementById('create').style.color = 'red';
+                document.getElementById('create').setAttribute("disabled", "disabled");
+                document.getElementById('create').style.opacity = (0.4);
+              document.getElementById('create').setAttribute("title", "passwords dont match");
+
+}
+
+  else {
+              document.getElementById('passCheck').style.visibility = 'hidden';
+                document.getElementById('create').style.color = 'green';
+                document.getElementById('create').removeAttribute("disabled");
+                document.getElementById('create').style.opacity = (1);
+                  document.getElementById('create').setAttribute("title", "");
+            }
+        }
+</script>
+
+<%- include('partials/footer') %>

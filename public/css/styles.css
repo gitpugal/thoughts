@@ -1,16 +1,208 @@
-
+@font-face {
+  font-family: "burtons";
+  src: url("/Burtons.otf");
+}
 body {
-  background-color: #E8ECEF;
+  position: absolute;
+  padding: 10px;
+  background-color: #FCE700;
+  height: 100%;
+  width: 100%;
+  font-family: "burtons";
+  text-align: center;
 }
 
-.centered {
-    padding-top: 200px;
-    text-align: center;
+.home{
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
+
+.logo--img{
+  border-radius: 9px;
+  max-width: 200;
+    max-height: 200px;
+  margin-right: 15px;
+
+}
+
+h1{
+
+  /* font-size: 7.5rem !important; */
+
+}
+
+p{
+  font-size: 2rem !important;
+}
+.logo--div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  margin-bottom: 20px;
+}
+
+.center {
+    padding-top: 60px;
+    text-align: center;
+    justify-content: center;
+    background: #FCE700 !important;
+    height: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+
+
+}
+
+
 
 .secret-text {
+  padding: 20px;
   text-align: center;
   font-size: 2rem;
   color: #fff;
-  background-color: #000;
+  background-color: #B2B2B2;
+  border-radius: 9px;
+  margin-top: 20px;
+  width:100%; /* width: 100px; */
+
+word-wrap: break-word;
+}
+
+/* .secret-text-div{
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+} */
+
+.like-count{
+  text-align: center;
+display: inline-block;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #B2B2B2;
+  min-width: 40%;
+  max-width: 60%;
+  border-radius: 9px;
+  max-height: 30%;
+  margin-bottom: auto;
+    margin-top: auto;
+    padding: 2px;
+
+}
+.secret-button {
+  text-align: center;
+display: inline-block;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #B2B2B2;
+  border-radius: 9px;
+  margin-right: 10px;
+  height: 30%;
+  margin-bottom: auto;
+    margin-top: auto;
+}
+
+
+
+.verifyHeader{
+  position: relative;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.verifyHeader p{
+  color: #82CD47;
+}
+.warning{
+
+  color: red;
+  background-color: yellow;
+  border-radius:9px;
+  margin: 10px;
+  visibility: hidden;
+  padding: 10px;
+}
+.home--footer{
+position: relative;
+margin-bottom: 0;
+
+}
+
+/* .home--footer a{
+  margin-left: auto;
+  margin-right: auto;
+
+} */
+.secrets--div{
+  display: flex;
+  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  text-align:center;
+  padding: 100px 0px;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+}
+
+.submit--input{
+  height: 100px;
+  width: 100%;
+  border-radius: 9px;
+  border-color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.container{
+
+  justify-content: center;
+}
+
+.login{
+  position: relative;
+
+  padding:100px 60px 60px;
+  height: 100%;
+  width: 100%;
+}
+.card{
+
+  border-radius: 19px;
+  border: none;
+  background-color: rgb(255,255,255,0.5) !important;
+
+}
+
+.row{
+  height: 100%;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+#passCheck, #emailCheck{
+  visibility: hidden ;
+}
+@media screen and (max-width: 600px) {
+  p{
+  font-size: 2rem !important;
+  }
+}
+
+
+.singleSecret{
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border: none;
+  border-radius: 19px;
+  margin-bottom: 45px;
+}
+
+.footer--text{
+  font-size: 1rem !important;
+  margin: 30px 0px 30px 0px;
+  bottom: 0;
 }
