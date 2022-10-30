@@ -387,6 +387,6 @@ app.get("/logout", function(req, res){
 
 mongoose.connect("mongodb+srv://pugalarasan:"+process.env.PASSWORD+"@cluster1.gtxc1qt.mongodb.net/userDB", {useNewUrlParser: true});
 
-app.listen(3000, function(){
+app.listen(process.env.PORT ||3000, function(){
   console.log("Server is running at port 3000....");
 });
