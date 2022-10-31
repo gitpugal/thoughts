@@ -106,7 +106,10 @@ display: inline-block;
     border: none;
 }
 
-
+.caution--text{
+  color: red;
+  font-size: 1rem !important;
+}
 
 .verifyHeader{
   position: relative;
