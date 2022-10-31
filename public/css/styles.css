@@ -63,7 +63,7 @@ p{
   text-align: center;
   font-size: 2rem;
   color: #fff;
-  background-color: #B2B2B2;
+  background-color: #0096FF;
   border-radius: 9px;
   margin-top: 20px;
   width:100%; /* width: 100px; */
@@ -82,7 +82,7 @@ word-wrap: break-word;
 display: inline-block;
   font-size: 2rem;
   color: #fff;
-  background-color: #B2B2B2;
+  background-color: #0096FF;
   min-width: 40%;
   max-width: 60%;
   border-radius: 9px;
@@ -97,13 +97,15 @@ display: inline-block;
 display: inline-block;
   font-size: 2rem;
   color: #fff;
-  background-color: #B2B2B2;
+  background-color: #0096FF;
   border-radius: 9px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   height: 30%;
-  margin-bottom: auto;
+
     margin-top: auto;
     border: none;
+    float: left;
+    width: 10%;
 }
 
 .caution--text{

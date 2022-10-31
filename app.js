@@ -344,6 +344,7 @@ app.post("/like", function(req, res){
   const likedUser = req.user.id;
   User.findById(userid, function(err, foundUser){
     const allusers = foundUser.secret[secretindex].likedUsers;
+    var likedPost = foundUser.secret[secretindex].id;
 
 
 let flag = false;
@@ -365,6 +366,7 @@ res.redirect("/secrets")
     }else{
       if(User.find({secrets: {$ne : null}}, function(err, foundUsers){
         res.render("secrets", {userWithSecrets: foundUsers});
+        // window.location.reload();
       }));
     }
   });
