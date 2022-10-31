@@ -116,7 +116,9 @@ display: inline-block;
 .verifyHeader{
   position: relative;
   margin-top: 50px;
-  margin-left: 100px;
+
+  text-align: center;
+  justify-content:center;
 }
 
 .verifyHeader p{
@@ -125,7 +127,6 @@ display: inline-block;
 .warning{
 
   color: red;
-  background-color: yellow;
   border-radius:9px;
   margin: 10px;
   visibility: hidden;
@@ -211,4 +212,16 @@ margin-bottom: 0;
   font-size: 1rem !important;
   margin: 30px 0px 30px 0px;
   bottom: 0;
+}
+
+.resendbutton{
+  border: none;
+  background-color: inherit;
+  text-decoration: underline;
+  color: blue;
+}
+
+.mailverified{
+  color: #38E54D;
+  margin-top: 10px;
 }

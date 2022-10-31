@@ -116,10 +116,14 @@ app.get("/register", function(req, res){
 app.get("/verify", function(req, res){
 
 
-res.render("verify", {errormessage: ''});
+res.render("verify", {errormessage: '', resendtext:''});
 
 
 });
+
+app.get("/resendotp", function(req, res){
+  res.render("resendotp", {errormessage: '', resendtext:''});
+})
 
 app.get("/secrets", function(req, res){
   if (req.isAuthenticated()){
@@ -136,14 +140,61 @@ app.get("/secrets", function(req, res){
 });
 
 
+app.post("/resend", function(req, res){
+  const email = req.body.username;
+  var otp =Math.floor(1000+ Math.random() * 9000);
+  console.log("sending mail1");
+  console.log(otp);
+  console.log(email);
+
+
+
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      host: 'smtp.gmail.com',
+    auth: {
+      user: "pugalarasan2014@gmail.com",
+      pass: process.env.SMTPPASS,
+    },
+  });
+    let message = {
+      from: "pugalarasan2014@gmail.com", // sender address
+      to: req.body.username, // list of receivers
+      subject: "otp from secrets", // Subject line
+      text: "otp"+otp , // plain text body
+      html: "This is your one-time password(otp) " + otp, // html body
+    };
+    transporter.sendMail(message, (err, info) => {
+      console.log("sending mail...");
+           if (err) {
+               console.log('Error occurred. ' + err.message);
+           }else{
+             User.findOneAndUpdate({username: email},{otp: otp}, function(err, doc){
+               if(!err){
+                 res.render("verify",{errormessage: '', resendtext:''});
+               }else{
+                 res.render("verify",{errormessage: 'otp failed send, resend otp again', resendtext:'Resend OTP'})
+               }
+             });
+           }
+
+           console.log('Message sent: %s', info);
+           // Preview only available when sending through an Ethereal account
+           console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+       });
+
+
+
+});
 
 //verify code
 
 app.post("/verify", function(req, res){
 
   const email = req.body.username;
-  const otp = req.body.otp;
-  console.log(email, otp);
+  var otp = req.body.otp;
+console.log("verify rfouter..");
 
   User.findOne({username: email}, function(err, foundUser){
     if(foundUser.otp === otp){
@@ -154,7 +205,7 @@ app.post("/verify", function(req, res){
         }
       })
     }else{
-      res.render("verify", { errormessage: 'wrong otp try again...'})
+      res.render("verify", { errormessage: 'wrong otp try again...', resendtext:'Resend OTP'})
     }
   });
 });
