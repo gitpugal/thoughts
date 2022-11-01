@@ -225,3 +225,8 @@ margin-bottom: 0;
   color: #38E54D;
   margin-top: 10px;
 }
+
+.noncapital input{
+  font-family: sans-serif !important;
+  text-align: center;
+}
