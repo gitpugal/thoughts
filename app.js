@@ -72,7 +72,7 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
-    console.log(profile);
+
     User.findOrCreate({ googleId: profile.id }, function (err, user) {
       return cb(err, user);
     });
@@ -144,8 +144,6 @@ app.post("/resend", function(req, res){
   const email = req.body.username;
   var otp =Math.floor(1000+ Math.random() * 9000);
   console.log("sending mail1");
-  console.log(otp);
-  console.log(email);
 
 
 
@@ -179,7 +177,6 @@ app.post("/resend", function(req, res){
              });
            }
 
-           console.log('Message sent: %s', info);
            // Preview only available when sending through an Ethereal account
            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
        });
@@ -261,7 +258,7 @@ app.post("/register", function(req, res){
                      console.log('Error occurred. ' + err.message);
                  }
 
-                 console.log('Message sent: %s', info);
+
                  // Preview only available when sending through an Ethereal account
                  console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
              });
@@ -283,7 +280,6 @@ app.post("/login", function(req, res){
 
 
 User.findOne({username: req.body.username}, function(err, foundUser){
-  console.log(foundUser);
   if(!foundUser){
     res.render("login" ,{errormessage: "no user found"})
   }else{
